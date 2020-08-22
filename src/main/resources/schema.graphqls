@@ -1,0 +1,55 @@
+ type Aspect{
+    id: String,
+    description: String
+ }
+
+type SellingInfo {
+    id: String,
+    linkInfo: String,
+    consultDate: String,
+    price: Float,
+    residencyType: Int
+ }
+
+ type House {
+        id: ID,
+        description: String,
+        parkingLotQuantity: Int,
+        buildingSize: String,
+        propertySize: String,
+        floors: Int,
+        bathroomQuantity: Int,
+        location: String,
+        aspects:[Aspect],
+        sellingInfo: SellingInfo
+ }
+
+ input AspectInput{
+     description: String
+  }
+
+ input SellingInfoInput{
+      linkInfo: String,
+      price: Float,
+      residencyType: Int
+  }
+
+ type Query {
+    houses(count: Int):[House]
+    house(id: ID):House
+  }
+
+type Mutation {
+    createHouse(
+        description: String!
+        roomsQuantity: Int,
+        parkingLotQuantity: Int,
+        buildingSize: String,
+        propertySize: String,
+        floors: Int,
+        bathroomQuantity: Int,
+        location: String,
+        aspects:[AspectInput],
+        sellingInfo: SellingInfoInput
+    ): House
+}
