@@ -15,7 +15,7 @@ public class HouseController {
     HouseRepository houseRepository;
 
     @GetMapping("/test")
-    public String welcome(){
+    public String test(){
         return "test";
     }
 
