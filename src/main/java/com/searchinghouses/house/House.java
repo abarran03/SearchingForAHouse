@@ -1,16 +1,21 @@
 package com.searchinghouses.house;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.searchinghouses.selling.SellingInfo;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+
 @Document
+@ApiModel(description = "Class representing a house in the application.")
 public class House {
     @Id
-    public String id;
-    private String description;
 
+    public String id;
+    @ApiModelProperty(notes = "Description field consists in a house describing text", example = "casa X", required = true)
+    private String description;
+    @ApiModelProperty(notes = "roomsQuantity", example = "2")
     private int roomsQuantity;
     private int parkingLotQuantity;
     private String buildingSize;

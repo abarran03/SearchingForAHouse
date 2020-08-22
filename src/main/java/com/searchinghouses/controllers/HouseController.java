@@ -3,8 +3,17 @@ package com.searchinghouses.controllers;
 import com.searchinghouses.exception.HouseNotFoundException;
 import com.searchinghouses.house.House;
 import com.searchinghouses.repository.HouseRepository;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Collection;
 
@@ -19,7 +28,8 @@ public class HouseController {
         return "test";
     }
 
-    @GetMapping("/houses")
+    @Operation(summary = "Get all houses", tags = { "House" })
+     @GetMapping("/houses")
     public Collection<House> allHouses(){
         return this.houseRepository.findAll();
     }
