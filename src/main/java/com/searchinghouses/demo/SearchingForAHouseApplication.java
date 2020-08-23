@@ -3,7 +3,7 @@ package com.searchinghouses.demo;
 import com.searchinghouses.house.Aspect;
 import com.searchinghouses.house.House;
 import com.searchinghouses.repository.HouseRepository;
-import com.searchinghouses.service.HouseService;
+import com.searchinghouses.services.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
