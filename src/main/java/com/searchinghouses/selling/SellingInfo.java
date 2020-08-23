@@ -1,12 +1,13 @@
 package com.searchinghouses.selling;
 
+import io.swagger.annotations.ApiModel;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.nio.channels.SeekableByteChannel;
 import java.util.Date;
 import java.util.UUID;
-
+@ApiModel(description = "Class representing the selling info of a house in the application.")
 public class SellingInfo {
 
     public SellingInfo(){

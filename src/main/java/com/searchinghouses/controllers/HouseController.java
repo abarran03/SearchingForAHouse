@@ -34,20 +34,25 @@ public class HouseController {
         return this.houseRepository.findAll();
     }
 
+    @Operation(summary = "Add house", tags = { "House" })
     @PostMapping("/houses")
     public House newHouse(@RequestBody House house) {
         return this.houseRepository.save(house);
     }
+
+    @Operation(summary = "Get house by id", tags = { "House" })
     @GetMapping("/houses/{id}")
     public House getAHouse(@PathVariable String id) throws HouseNotFoundException {
         return this.houseRepository.findById(id).orElseThrow(HouseNotFoundException::new);
     }
 
+    @Operation(summary = "Delete a house", tags = { "House" })
     @DeleteMapping("/houses/{id}")
     public void deleteHouse(@PathVariable String id) {
         this.houseRepository.deleteById(id);
     }
 
+    @Operation(summary = "Update a house", tags = { "House" })
     @PutMapping("/houses/{id}")
     public void updateHouse(@RequestBody House newHouse, @PathVariable String id){
         this.houseRepository.save(newHouse);
